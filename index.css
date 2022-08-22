@@ -6,6 +6,7 @@ body {
     width: 100vw;
     justify-items: center;
     align-items: center;
+    font-family: "Helvetica", "Arial", sans-serif;
 }
 
 .gridContainer {
