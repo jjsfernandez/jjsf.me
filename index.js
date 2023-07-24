@@ -15,26 +15,24 @@ photo.addEventListener('dblclick', () => {
 function sendRequest(action) {
 
     const passphrase = passphraseInput.value;
-    if(!passphrase){
+    if (!passphrase) {
         jsonOutput.textContent = JSON.stringify("Empty Passphrase");
         jsonOutput.classList.remove('hidden');
         return;
     }
-    const url = `https://hcei6zbcg3.execute-api.us-west-1.amazonaws.com/Prod/${action}?passphrase=${passphrase}`;
-
-     const config = {
-        method: action === 'status' ? 'GET' : 'POST', // specify the request method
-        headers: {
-            'Content-Type': 'application/json', // specify the content type
-        },
-    };
 
     // Clear the JSON output
     jsonOutput.textContent = '';
     jsonOutput.classList.add('hidden');
     spinner.classList.remove('hidden');
 
-    fetch(url, config)
+    fetch(`https://hcei6zbcg3.execute-api.us-west-1.amazonaws.com/Prod/${action}`,
+        {
+            method: 'POST', headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ passphrase: passphrase })
+        })
         .then(response => response.json())
         .then(data => {
             jsonOutput.textContent = JSON.stringify(data, null, 2);
