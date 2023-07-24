@@ -32,6 +32,7 @@ async function sendRequest(action) {
     // Clear the JSON output
     jsonOutput.textContent = '';
     jsonOutput.classList.add('hidden');
+    ipOutputContainer.classList.add('hidden');
     spinner.classList.remove('hidden');
 
     try {
@@ -41,7 +42,7 @@ async function sendRequest(action) {
             },
             body: JSON.stringify({ passphrase: passphrase })
         });
-
+    
         const data = await response.json();
 
         // Check if the response is an object before using 'in'
@@ -95,7 +96,7 @@ async function copyIpToClipboard() {
             } finally {
                 setTimeout(() => {
                     console.log('timeout');
-                    copyIpButton.textContent = 'CopyIP';
+                    copyIpButton.textContent = 'Copy';
                 }, 1000);
             }
         }

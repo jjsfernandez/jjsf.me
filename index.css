@@ -1,11 +1,11 @@
 body {
     margin: 0;
     padding: 0;
-    padding-top: 20%;
+    padding-top: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80%;
+    height: 85%;
     width: 100%;
     font-family: "Helvetica", "Arial", sans-serif;
     overflow-x: hidden;
@@ -14,10 +14,11 @@ body {
 
 body.shifted {
     align-items: flex-start;
-    padding-top: 2.5%;
+    padding-top: 5%;
 }
 
 .gridContainer {
+    margin-bottom: 50px;
     display: inline-grid;
     width: 300px;
     justify-items: center;
@@ -46,7 +47,7 @@ body.shifted {
     display: grid;
     gap: 1rem;
     padding: 1rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
     background-color: #f1f1f1;
     border-radius: 0.5rem;
     text-align: center;
@@ -55,7 +56,7 @@ body.shifted {
 .jsonOutput, .ipOutputContainer {
     max-width: 80vw;
     padding: 1rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     overflow: auto;
     background-color: #f1f1f1;
     border-radius: 0.5rem;
@@ -63,6 +64,10 @@ body.shifted {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#copyIpButton {
+    margin-left: 1rem;
 }
 
 .hidden {
