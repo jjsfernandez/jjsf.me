@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
-<title>Jose's Website</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
 <head>
+    <meta charset="UTF-8">
+    <title>Jose's Website</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="gridContainer">
         <p>Jose Fernandez</p>
-        <img class="photo" src="resources/meirl.png" alt="meirl"></img>
+        <img class="photo" id="photo" src="resources/meirl.png" alt="meirl"></img>
         <p>Software Engineer</p>
         <div class="links">
             <a href="https://github.com/jjsfernandez">
@@ -19,9 +19,21 @@
                 <img class="icon" src="resources/document-text-outline.svg" alt="resume"></img>
             </a>
             <a href="https://www.linkedin.com/in/jose-fernandez-024546123/">
-                <img class="icon" src="resources/logo-linkedin.svg" alt="linkedin"></img></a>
-            <a href="mailto: jose@jjsf.me"><img class="icon" src="resources/mail-outline.svg" alt="mail me"></img></a>
+                <img class="icon" src="resources/logo-linkedin.svg" alt="linkedin"></img>
+            </a>
+            <a href="mailto: jose@jjsf.me">
+                <img class="icon" src="resources/mail-outline.svg" alt="mail me"></img>
+            </a>
         </div>    
+        <div id="controlPanel" class="controlPanel hidden">
+            <input type="text" id="passphrase" placeholder="passphrase"/>
+            <button onclick="sendRequest('status')">Status</button>
+            <button onclick="sendRequest('start')">Start</button>
+            <button onclick="sendRequest('stop')">Stop</button>
+        </div>
+        <div id="spinner" class="spinner hidden"></div>
+        <pre id="jsonOutput" class="jsonOutput hidden"></pre>
     </div>
+    <script src="index.js"></script>
 </body>
 </html>
