@@ -26,13 +26,18 @@
             </a>
         </div>    
         <div id="controlPanel" class="controlPanel hidden">
+            <p>Zomboid Server Controls</p>
             <input type="text" id="passphrase" placeholder="passphrase"/>
-            <button onclick="sendRequest('status')">Status</button>
-            <button onclick="sendRequest('start')">Start</button>
-            <button onclick="sendRequest('stop')">Stop</button>
+            <button id="statusButton" onclick="sendRequest('status')">Status</button>
+            <button id="startButton" onclick="sendRequest('start')">Start</button>
+            <button id="stopButton" onclick="confirmStop()">Stop</button>
         </div>
         <div id="spinner" class="spinner hidden"></div>
         <pre id="jsonOutput" class="jsonOutput hidden"></pre>
+        <div id="ipOutputContainer" class="ipOutputContainer">
+            <input type="text" id="ipOutput">
+            <button id="copyIpButton" onclick="copyIpToClipboard()">CopyIP</button>
+        </div>
     </div>
     <script src="index.js"></script>
 </body>
