@@ -12,6 +12,7 @@ let stopConfirm = false;
 
 // Toggle control panel when photo is double-clicked
 photo.addEventListener('dblclick', () => {
+    document.body.classList.toggle('shifted');
     controlPanel.classList.toggle('hidden');
     jsonOutput.classList.add('hidden');
     ipOutputContainer.classList.add('hidden');
