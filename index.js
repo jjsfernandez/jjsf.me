@@ -6,7 +6,7 @@ const photo = document.getElementById('photo');
 const spinner = document.getElementById('spinner');
 const stopButton = document.getElementById('stopButton');
 const ipOutput = document.getElementById('ipOutput');
-const ipOutputContainer = document.getElementById('ipOutputContainer');
+const ipContainer = document.getElementById('ipContainer');
 const copyIpButton = document.getElementById('copyIpButton');
 let stopConfirm = false;
 
@@ -15,7 +15,7 @@ photo.addEventListener('dblclick', () => {
     document.body.classList.toggle('shifted');
     controlPanel.classList.toggle('hidden');
     jsonOutput.classList.add('hidden');
-    ipOutputContainer.classList.add('hidden');
+    ipContainer.classList.toggle('hidden');
 });
 
 // Function to make API requests
@@ -32,7 +32,6 @@ async function sendRequest(action) {
     // Clear the JSON output
     jsonOutput.textContent = '';
     jsonOutput.classList.add('hidden');
-    ipOutputContainer.classList.add('hidden');
     spinner.classList.remove('hidden');
 
     try {
@@ -44,17 +43,9 @@ async function sendRequest(action) {
         });
     
         const data = await response.json();
-
-        // Check if the response is an object before using 'in'
-        if (typeof data === 'object' && 'ip' in data) {
-            ipOutput.value = data.ip;
-            ipOutputContainer.classList.remove('hidden');
-        }
-
         jsonOutput.textContent = JSON.stringify(data, null, 2);
         jsonOutput.classList.remove('hidden');
         spinner.classList.add('hidden');
-
 
         if (action === 'stop') {
             resetStopButton();
@@ -95,7 +86,7 @@ async function copyIpToClipboard() {
 
         // Reset the copy button after 1 second
         setTimeout(() => {
-            copyIpButton.textContent = 'Copy';
+            copyIpButton.textContent = 'Copy IP';
             copyIpButton.className = '';  // Reset classList
         }, 1000);
     }

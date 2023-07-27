@@ -47,13 +47,17 @@ body.shifted {
     display: grid;
     gap: 1rem;
     padding: 1rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     background-color: #f1f1f1;
     border-radius: 0.5rem;
     text-align: center;
+    p {
+        margin: 0;
+        margin-top: 10px;
+    }
 }
 
-.jsonOutput, .ipOutputContainer {
+.jsonOutput, .ipContainer {
     max-width: 80vw;
     padding: 1rem;
     margin-top: 1rem;
@@ -64,11 +68,6 @@ body.shifted {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#copyIpButton {
-    margin-left: 1rem;
-    width: 100px;
 }
 
 .hidden {
@@ -98,7 +97,7 @@ body.shifted {
     color: white;
 }
 
-.ipOutputContainer input {
+.ipContainer input {
     width: 70%;
     text-align: center;
 }
@@ -116,4 +115,8 @@ button {
 button:active {
     background-color: black;
     color: white;
+}
+
+input { 
+    text-align: center; 
 }
