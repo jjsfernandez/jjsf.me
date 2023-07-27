@@ -28,7 +28,7 @@ body.shifted {
 .photo {
     width: 175px;
     height: auto;
-    user-select: none;  
+    user-select: none;
     margin-right: 1rem;
 }
 
@@ -51,13 +51,15 @@ body.shifted {
     background-color: #f1f1f1;
     border-radius: 0.5rem;
     text-align: center;
-    p {
-        margin: 0;
-        margin-top: 10px;
-    }
 }
 
-.jsonOutput, .ipContainer {
+.controlPanel p {
+    margin: 0;
+    margin-top: 10px;
+}
+
+.jsonOutput,
+.ipContainer {
     max-width: 80vw;
     padding: 1rem;
     margin-top: 1rem;
@@ -81,17 +83,19 @@ body.shifted {
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    animation: spin 1s cubic-bezier(0,.6,1,.4) infinite;
+    animation: spin 1s cubic-bezier(0, .6, 1, .4) infinite;
 }
 
 @keyframes spin {
-    0% { 
+    0% {
         transform: rotate(0deg);
     }
-    100% { 
+
+    100% {
         transform: rotate(360deg);
     }
 }
+
 .confirm {
     background-color: red;
     color: white;
@@ -108,8 +112,10 @@ button {
     color: black;
     text-align: center;
     text-transform: uppercase;
-    padding: 5px 10px; /* Adjust padding as needed */
-    transition: background-color 0.3s, color 0.3s; /* Animation effect */
+    padding: 5px 10px;
+    /* Adjust padding as needed */
+    transition: background-color 0.3s, color 0.3s;
+    /* Animation effect */
 }
 
 button:active {
@@ -117,6 +123,6 @@ button:active {
     color: white;
 }
 
-input { 
-    text-align: center; 
+input {
+    text-align: center;
 }
