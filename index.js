@@ -84,23 +84,38 @@ function confirmStop() {
 }
 
 async function copyIpToClipboard() {
+    const setButtonState = (success) => {
+        if (success) {
+            copyIpButton.classList.add('flash-green');
+            copyIpButton.textContent = 'Copied!';
+        } else {
+            copyIpButton.classList.add('flash-red');
+            copyIpButton.textContent = 'Failed!';
+        }
+
+        // Reset the copy button after 1 second
+        setTimeout(() => {
+            copyIpButton.textContent = 'Copy';
+            copyIpButton.className = '';  // Reset classList
+        }, 1000);
+    }
+
+    const text = ipOutput.value;
+
     try {
-        const result = await navigator.permissions.query({ name: "clipboard-write" });
-        if (result.state === "granted" || result.state === "prompt") {
-            try {
-                await navigator.clipboard.writeText(ipOutput.value);
-                copyIpButton.classList.add('flash-green');
-                copyIpButton.textContent = 'Copied!';
-            } catch (err) {
-                copyIpButton.classList.add('flash-red');
-            } finally {
-                setTimeout(() => {
-                    console.log('timeout');
-                    copyIpButton.textContent = 'Copy';
-                }, 1000);
-            }
+        if (typeof ClipboardItem !== 'undefined' && navigator.clipboard.write) {
+            const item = new ClipboardItem({
+                "text/plain": new Blob([text], { type: "text/plain" })
+            });
+            
+            await navigator.clipboard.write([item]);
+            setButtonState(true);
+        } else {
+            await navigator.clipboard.writeText(text);
+            setButtonState(true);
         }
     } catch (err) {
-        console.error(err);
+        console.error('Failed to copy to clipboard', err);
+        setButtonState(false);
     }
 }
