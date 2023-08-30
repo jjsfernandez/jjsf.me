@@ -12,11 +12,6 @@ body {
     overflow-y: auto;
 }
 
-body.shifted {
-    align-items: flex-start;
-    padding-top: 5%;
-}
-
 .gridContainer {
     margin-bottom: 50px;
     display: inline-grid;
@@ -43,86 +38,3 @@ body.shifted {
     grid-auto-flow: column;
 }
 
-.controlPanel {
-    display: grid;
-    gap: 1rem;
-    padding: 1rem;
-    margin-top: 1rem;
-    background-color: #f1f1f1;
-    border-radius: 0.5rem;
-    text-align: center;
-}
-
-.controlPanel p {
-    margin: 0;
-    margin-top: 10px;
-}
-
-.jsonOutput,
-.ipContainer {
-    max-width: 80vw;
-    padding: 1rem;
-    margin-top: 1rem;
-    overflow: auto;
-    background-color: #f1f1f1;
-    border-radius: 0.5rem;
-    font-family: monospace;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hidden {
-    display: none;
-}
-
-.spinner {
-    margin: 1rem;
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    border-top: 4px solid #013220;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s cubic-bezier(0, .6, 1, .4) infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.confirm {
-    background-color: red;
-    color: white;
-}
-
-.ipContainer input {
-    width: 70%;
-    text-align: center;
-}
-
-button {
-    background-color: white;
-    border: 1px solid black;
-    color: black;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 5px 10px;
-    /* Adjust padding as needed */
-    transition: background-color 0.3s, color 0.3s;
-    /* Animation effect */
-}
-
-button:active {
-    background-color: black;
-    color: white;
-}
-
-input {
-    text-align: center;
-}
