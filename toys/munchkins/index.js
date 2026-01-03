@@ -140,6 +140,16 @@ function createEntityCard(entity, side) {
         handleNameChange(side, entity.id, newName);
     });
 
+    nameElement.addEventListener('focus', (e) => {
+        const selection = window.getSelection();
+        if (!selection) return;
+
+        const range = document.createRange();
+        range.selectNodeContents(e.target);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    });
+
     nameElement.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();

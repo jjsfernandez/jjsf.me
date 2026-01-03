@@ -386,6 +386,10 @@ button:focus-visible {
         padding: 18px 0 12px 0;
     }
 
+    .enemies-side .side-header {
+        padding-top: 30px;
+    }
+
     .side-header h2 {
         font-size: 1.3rem;
     }
