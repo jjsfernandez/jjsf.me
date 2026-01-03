@@ -17,7 +17,6 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    height: 100vh;
 }
 
 .game-container {
@@ -51,9 +50,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 20px;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
+    margin: -20px -20px 20px -20px;
+    padding: 24px 20px 15px 20px;
     border-bottom: 2px solid #e0e0e0;
 }
 
@@ -94,15 +92,11 @@ body {
     will-change: transform;
 }
 
-.add-btn:focus-visible {
-    outline: 3px solid #4A90E2;
-    outline-offset: 2px;
-}
-
 .entities-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-top: 20px;
 }
 
 .entity-card {
@@ -117,8 +111,6 @@ body {
 
 .entity-card:only-child {
     grid-column: 1 / -1;
-    max-width: 400px;
-    margin: 0 auto;
 }
 
 .entity-header {
@@ -155,14 +147,14 @@ body {
     background: #b71c1c;
 }
 
-.remove-btn:focus-visible {
-    outline: 3px solid #4A90E2;
-    outline-offset: 2px;
-}
-
 button {
     user-select: none;
     -webkit-user-select: none;
+}
+
+button:focus-visible {
+    outline: 3px solid #4A90E2;
+    outline-offset: 2px;
 }
 
 .entity-controls {
@@ -203,11 +195,6 @@ button {
 .level-btn:active {
     transform: scale(0.95);
     will-change: transform;
-}
-
-.level-btn:focus-visible {
-    outline: 3px solid #4A90E2;
-    outline-offset: 2px;
 }
 
 .level-btn.increment {
@@ -257,6 +244,19 @@ button {
         flex-direction: column;
     }
 
+    .game-container::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 60px;
+        transform: translateY(-50%);
+        background: linear-gradient(to bottom, #fff5f5 0%, #fff5f5 49%, #e0e0e0 49%, #e0e0e0 51%, #f5f5ff 51%, #f5f5ff 100%);
+        z-index: 5;
+        pointer-events: none;
+    }
+
     .enemies-side {
         border-right: none;
         border-bottom: 2px solid #e0e0e0;
@@ -279,6 +279,7 @@ button {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
+        padding: 2px;
     }
 
     .entity-card {
@@ -287,9 +288,8 @@ button {
     }
 
     .side-header {
-        padding-top: 12px;
-        margin-bottom: 12px;
-        padding-bottom: 10px;
+        margin: -12px -12px 0 -12px;
+        padding: 18px;
     }
 
     .side-header h2 {
