@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Munchkins Copilot - Jose's Website</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="app">
+        <div class="game-container">
+            <div class="tally-badge" id="tally-badge" role="status" aria-live="polite">Tied</div>
+
+            <section class="side enemies-side">
+                <div class="side-header">
+                    <h2 id="enemies-header">Enemies</h2>
+                    <button class="add-btn" data-side="enemies" aria-label="Add enemy">+</button>
+                </div>
+                <div class="entities-list" id="enemies-list">
+                </div>
+            </section>
+
+            <section class="side players-side">
+                <div class="side-header">
+                    <h2 id="players-header">Players</h2>
+                    <button class="add-btn" data-side="players" aria-label="Add player">+</button>
+                </div>
+                <div class="entities-list" id="players-list">
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
