@@ -17,6 +17,7 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    height: 100vh;
 }
 
 .game-container {
@@ -24,6 +25,7 @@ body {
     display: flex;
     overflow: hidden;
     position: relative;
+    min-height: 0;
 }
 
 .side {
@@ -32,6 +34,7 @@ body {
     flex-direction: column;
     padding: 20px;
     overflow-y: auto;
+    min-height: 0;
 }
 
 .enemies-side {
@@ -205,11 +208,18 @@ button:focus-visible {
     color: #c62828;
 }
 
-.tally-badge {
+.tally-container {
     position: absolute;
-    top: 50%;
+    top: 85px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tally-badge {
     background: #fff;
     border: 3px solid #e0e0e0;
     border-radius: 24px;
@@ -217,8 +227,31 @@ button:focus-visible {
     font-size: 1.2rem;
     font-weight: 500;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 100;
     white-space: nowrap;
+}
+
+.reset-btn {
+    background: #757575;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.reset-btn:hover {
+    background: #616161;
+}
+
+.reset-btn:active {
+    transform: scale(0.95);
 }
 
 .tally-badge.players-winning {
@@ -315,9 +348,20 @@ button:focus-visible {
         font-size: 1rem;
     }
 
+    .tally-container {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
     .tally-badge {
         font-size: 1rem;
         padding: 10px 20px;
+    }
+
+    .reset-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
     }
 }
 

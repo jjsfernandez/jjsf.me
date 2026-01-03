@@ -26,6 +26,8 @@ function setupEventListeners() {
     document.querySelectorAll('.add-btn').forEach(btn => {
         btn.addEventListener('click', handleAddEntity);
     });
+
+    document.getElementById('reset-btn').addEventListener('click', handleReset);
 }
 
 function handleAddEntity(e) {
@@ -54,6 +56,21 @@ function handleModifyLevel(side, id, amount) {
         saveState();
         render();
     }
+}
+
+function handleReset() {
+    state.enemies = [];
+    state.players = [];
+    state.nextId = 1;
+
+    const enemy = new Entity(state.nextId++, 'Enemy 1', 5);
+    const player = new Entity(state.nextId++, 'Player 1', 5);
+
+    state.enemies.push(enemy);
+    state.players.push(player);
+
+    saveState();
+    render();
 }
 
 function render() {
