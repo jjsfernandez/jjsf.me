@@ -120,7 +120,7 @@ function createEntityCard(entity, side) {
 
     card.innerHTML = `
         <div class="entity-header">
-            <span class="entity-name">${entity.name}</span>
+            <span class="entity-name" contenteditable="true" data-id="${entity.id}">${entity.name}</span>
             <div class="level-display">${entity.level}</div>
             <button class="remove-btn" data-id="${entity.id}" aria-label="Remove ${entity.name}">×</button>
         </div>
@@ -134,6 +134,19 @@ function createEntityCard(entity, side) {
         </div>
     `;
 
+    const nameElement = card.querySelector('.entity-name');
+    nameElement.addEventListener('blur', (e) => {
+        const newName = e.target.textContent.trim() || entity.name;
+        handleNameChange(side, entity.id, newName);
+    });
+
+    nameElement.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            e.target.blur();
+        }
+    });
+
     const removeBtn = card.querySelector('.remove-btn');
     removeBtn.addEventListener('click', () => handleRemoveEntity(side, entity.id));
 
@@ -146,6 +159,14 @@ function createEntityCard(entity, side) {
     });
 
     return card;
+}
+
+function handleNameChange(side, id, newName) {
+    const entity = state[side].find(e => e.id === id);
+    if (entity && newName !== entity.name) {
+        entity.name = newName;
+        saveState();
+    }
 }
 
 function saveState() {
