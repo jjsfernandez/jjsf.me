@@ -104,10 +104,10 @@ function createEntityCard(entity, side) {
     card.innerHTML = `
         <div class="entity-header">
             <span class="entity-name">${entity.name}</span>
+            <div class="level-display">${entity.level}</div>
             <button class="remove-btn" data-id="${entity.id}" aria-label="Remove ${entity.name}">×</button>
         </div>
         <div class="entity-controls">
-            <div class="level-display">${entity.level}</div>
             <div class="button-group">
                 <button class="level-btn decrement" data-change="-3">-3</button>
                 <button class="level-btn increment" data-change="+3">+3</button>
