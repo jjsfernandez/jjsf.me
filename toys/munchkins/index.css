@@ -8,9 +8,9 @@
     /* Typography / text */
     --munch-text-main: #333333;
 
-    /* Primary buttons */
-    --munch-btn-primary-bg: #333333;
-    --munch-btn-primary-bg-hover: #555555;
+    /* Primary buttons (add entity) */
+    --munch-btn-primary-bg: #16a34a;
+    --munch-btn-primary-bg-hover: #22c55e;
 
     /* Danger buttons */
     --munch-btn-danger-bg: #d32f2f;
@@ -21,6 +21,7 @@
     --munch-btn-reset-bg-hover: #616161;
 
     /* Cards / level buttons */
+    --munch-card-bg: #ffffff;
     --munch-card-border: #e0e0e0;
     --munch-level-btn-bg: #f0f0f0;
     --munch-level-btn-border: #d0d0d0;
@@ -33,6 +34,51 @@
     --munch-tally-enemies-bg: #ffebee;
     --munch-tally-neutral-border: #757575;
     --munch-tally-neutral-bg: #f5f5f5;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --munch-bg-page: #050608;
+        --munch-bg-enemies: #161925;
+        --munch-bg-players: #111827;
+        --munch-border-soft: #303549;
+
+        --munch-text-main: #e5e7eb;
+
+        --munch-btn-primary-bg: #16a34a;
+        --munch-btn-primary-bg-hover: #22c55e;
+
+        --munch-btn-danger-bg: #f97373;
+        --munch-btn-danger-bg-hover: #fb5f5f;
+
+        --munch-btn-reset-bg: #9ca3af;
+        --munch-btn-reset-bg-hover: #d1d5db;
+
+        --munch-card-bg: #020617;
+        --munch-card-border: #4b5563;
+        --munch-level-btn-bg: #374151;
+        --munch-level-btn-border: #4b5563;
+        --munch-level-btn-border-hover: #9ca3af;
+
+        --munch-level-inc: #4ade80;
+        --munch-level-dec: #fb7185;
+        --munch-tally-players-bg: #064e3b;
+        --munch-tally-enemies-bg: #7f1d1d;
+        --munch-tally-neutral-border: #9ca3af;
+        --munch-tally-neutral-bg: #111827;
+    }
+
+    body {
+        color: var(--munch-text-main);
+    }
+
+    .tally-badge {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+    }
+
+    .reset-btn {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    }
 }
 
 * {
@@ -141,7 +187,7 @@ body {
 }
 
 .entity-card {
-    background: #ffffff;
+    background: var(--munch-card-bg);
     border: 2px solid var(--munch-card-border);
     border-radius: 8px;
     padding: 16px;
