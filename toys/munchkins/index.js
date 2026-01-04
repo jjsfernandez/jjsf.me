@@ -110,8 +110,10 @@ function renderTally() {
     tallyElement.textContent = message;
     tallyElement.className = `tally-badge ${winner}`;
 
-    document.getElementById('enemies-header').textContent = `Enemies (${enemiesTotal})`;
-    document.getElementById('players-header').textContent = `Players (${playersTotal})`;
+    const enemiesScoreEl = document.getElementById('enemies-score');
+    const playersScoreEl = document.getElementById('players-score');
+    if (enemiesScoreEl) enemiesScoreEl.textContent = enemiesTotal;
+    if (playersScoreEl) playersScoreEl.textContent = playersTotal;
 }
 
 function createEntityCard(entity, side) {

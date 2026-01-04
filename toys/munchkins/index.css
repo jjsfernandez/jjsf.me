@@ -134,9 +134,10 @@ body {
     position: sticky;
     top: 0;
     z-index: 10;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
+    column-gap: 12px;
     margin: 0 0 20px 0;
     padding: 24px 0 15px 0;
     border-bottom: 2px solid var(--munch-border-soft);
@@ -155,6 +156,26 @@ body {
     font-weight: 300;
 }
 
+.side-title {
+    justify-self: start;
+}
+
+.side-score {
+    justify-self: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.enemies-side .side-score {
+    color: var(--munch-level-dec);
+}
+
+.players-side .side-score {
+    color: var(--munch-level-inc);
+}
+
 .add-btn {
     background: var(--munch-btn-primary-bg);
     color: white;
@@ -168,6 +189,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    justify-self: end;
 }
 
 .add-btn:hover {
@@ -270,6 +292,8 @@ button:focus-visible {
     text-align: center;
     min-width: 40px;
     justify-self: center;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 .button-group {
